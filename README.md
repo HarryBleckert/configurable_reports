@@ -4,6 +4,8 @@ Aug. 23, 2023
 Fork of this plugin created.
 Target of this fork is compatibility with Moodle Versions 4.x
 Author: Harry Bleckert - Harry@Bleckert.com
+
+
 Installation, Documentation, Tutorials....
 See http://docs.moodle.org/en/blocks/configurable_reports/
 Also http://moodle.org/mod/data/view.php?d=13&rid=4283

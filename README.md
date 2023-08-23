@@ -45,11 +45,11 @@ Release date: Tuesday, 3 November 2020
 - Added webservice to get reports data
 - Added new filters for competencies
 - Other fixes and improvements:
-  * Fix offset error for bar graphs when not using SQL reporting
-  * Removed default sorting from DataTables JS UI
-  * Fixed issue where colors would mismatch if values weren't present
-  * Fixed STARTTIME and ENDTIME variable substitution
-  * Avoid text filtering when exporting
+    * Fix offset error for bar graphs when not using SQL reporting
+    * Removed default sorting from DataTables JS UI
+    * Fixed issue where colors would mismatch if values weren't present
+    * Fixed STARTTIME and ENDTIME variable substitution
+    * Avoid text filtering when exporting
 
 Thanks Alex Rowe, David Saylor, Michael Gardener, Muhammad Osama Arshad, Daniel Poggenpohl, Daniel Neis, François Parlant and all the contributors who have sent several fixes and improvements.
 
@@ -59,11 +59,11 @@ Release date: Friday, 20 Dec 2019
 ----------------------------------------------------------------------
 - Order the list of users in users filter by fullname considering language - #130
 - Other fixes and improvements:
-  * Fix template array error - #132
-  * Fix DB mismatch between install.xml and upgrade.php - #123
-  * Fix LIMIT error for MSSQL - CONTRIB-7891
-  * Remove "_" from the table header titles - #137
-  * Review supported Moodle versions, because the core_userlist_provider interface is only supported from 3.4 onwards - #125
+    * Fix template array error - #132
+    * Fix DB mismatch between install.xml and upgrade.php - #123
+    * Fix LIMIT error for MSSQL - CONTRIB-7891
+    * Remove "_" from the table header titles - #137
+    * Review supported Moodle versions, because the core_userlist_provider interface is only supported from 3.4 onwards - #125
 
 
 Thanks Daniel Neis (danielneis), Mike McDougal (mcdoogs), Tuan Ngoc Nguyen (tuanngocnguyen), Mike Henry (mhenry79mnet), safatshahinsd, kristian-94 and all the contributors who have sent several fixes and improvements.
@@ -81,23 +81,23 @@ Release date: Friday, 20 Dec 2019
 - Fix import from XML
 - Review the year filter to take min and max years from the calendar factory
 - Other fixes and improvements:
-  * Fix template array error - #132
-  * Fix DB mismatch between install.xml and upgrade.php - #123
-  * Fix LIMIT error for MSSQL - CONTRIB-7891
-  * Remove "_" from the table header titles - #137
-  * Review supported Moodle versions, because the core_userlist_provider interface is only supported from 3.4 onwards - #125
-  * Fix error when using templates
-  * Fix error when using the Start/End filter
-  * Fix legacy_polyfill error when running unit tests
-  * Display custom title for the block
-  * Replace deprecated methods (htmleditor, pix_url and coursecat)
-  * Remove CSS files not found error in JS console
-  * Show breadcrumbs for users without manage report capability
-  * Fix DB query function call for the enrolled students filter
-  * Raise the memory limit when exporting
-  * Clean some request parameters before using them
-  * Fix error with user field search box filter
-  * Improve compatibility with PostgreSQL when importing
+    * Fix template array error - #132
+    * Fix DB mismatch between install.xml and upgrade.php - #123
+    * Fix LIMIT error for MSSQL - CONTRIB-7891
+    * Remove "_" from the table header titles - #137
+    * Review supported Moodle versions, because the core_userlist_provider interface is only supported from 3.4 onwards - #125
+    * Fix error when using templates
+    * Fix error when using the Start/End filter
+    * Fix legacy_polyfill error when running unit tests
+    * Display custom title for the block
+    * Replace deprecated methods (htmleditor, pix_url and coursecat)
+    * Remove CSS files not found error in JS console
+    * Show breadcrumbs for users without manage report capability
+    * Fix DB query function call for the enrolled students filter
+    * Raise the memory limit when exporting
+    * Clean some request parameters before using them
+    * Fix error with user field search box filter
+    * Improve compatibility with PostgreSQL when importing
 
 
 Thanks Daniel Neis (danielneis), Mike McDougal (mcdoogs), Tuan Ngoc Nguyen (tuanngocnguyen), Mike Henry (mhenry79mnet), safatshahinsd, kristian-94, David (davidpesce), Dimitrii (dmitriim), Alex (agrowe), Donald (emyb2), sopnep15, Danniel (dannielarriola) and all the contributors who have sent several fixes and improvements.
@@ -110,10 +110,10 @@ Release date: Monday, 3 Jun 2019
 - Add a new calculation type: percentage
 - Allow userfields to be used more than once in the permissions
 - Other fixes and improvements:
-  * Fix error when using templates
-  * Fix error when using the Start/End filter
-  * Fix legacy_polyfill error when running unit tests
-  * Display custom title for the block
+    * Fix error when using templates
+    * Fix error when using the Start/End filter
+    * Fix legacy_polyfill error when running unit tests
+    * Display custom title for the block
 
 
 Thanks David (davidpesce), Dimitrii (dmitriim) and all the contributors who have sent several fixes and improvements.
@@ -125,21 +125,21 @@ Release date: Friday, 15 Feb 2019
 ----------------------------------------------------------------------
 - Implement Privacy API
 - Replace deprecated methods:
-  * htmleditor
-  * pix_url
-  * coursecat
+    * htmleditor
+    * pix_url
+    * coursecat
 - Move JS to AMD modules
 - Upgrade some 3rd party JS libraries
 - Fix import from XML
 - Review the year filter to take min and max years from the calendar factory
 - Other fixes and improvements:
-  * Remove CSS files not found error in JS console
-  * Show breadcrumbs for users without manage report capability
-  * Fix DB query function call for the enrolled students filter
-  * Raise the memory limit when exporting
-  * Clean some request parameters before using them
-  * Fix error with user field search box filter
-  * Improve compatibility with PostgreSQL when importing
+    * Remove CSS files not found error in JS console
+    * Show breadcrumbs for users without manage report capability
+    * Fix DB query function call for the enrolled students filter
+    * Raise the memory limit when exporting
+    * Clean some request parameters before using them
+    * Fix error with user field search box filter
+    * Improve compatibility with PostgreSQL when importing
 
 Thanks Alex (agrowe), Donald (emyb2), sopnep15, Danniel (dannielarriola) and all the contributors who have sent several
 fixes and improvements.

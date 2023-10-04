@@ -46,7 +46,7 @@ class report_sql extends report_base {
         global $DB, $USER, $CFG, $COURSE;
 
         // Enable debug mode from SQL query.
-        $this->config_rep->debug = (strpos($sql, '%%DEBUG%%') !== false) ? true : false;
+        $this->config->debug = (strpos($sql, '%%DEBUG%%') !== false) ? true : false;
 
         // Pass special custom undefined variable as filter.
         // Security warning !!! can be used for sql injection.
@@ -90,9 +90,9 @@ class report_sql extends report_base {
         }
 
         // Update the execution time in the DB.
-        $updaterecord = $DB->get_record('block_configurable_reports', array('id' => $this->config_rep->id));
+        $updaterecord = $DB->get_record('block_configurable_reports', array('id' => $this->config->id));
         $updaterecord->lastexecutiontime = round((microtime(true) - $starttime) * 1000);
-        $this->config_rep->lastexecutiontime = $updaterecord->lastexecutiontime;
+        $this->config->lastexecutiontime = $updaterecord->lastexecutiontime;
 
         $DB->update_record('block_configurable_reports', $updaterecord);
 
@@ -102,7 +102,7 @@ class report_sql extends report_base {
     public function create_report() {
         global $DB, $CFG;
 
-        $components = cr_unserialize($this->config_rep->components);
+        $components = cr_unserialize($this->config->components);
 
         $filters = (isset($components['filters']['elements'])) ? $components['filters']['elements'] : array();
         $calcs = (isset($components['calcs']['elements'])) ? $components['calcs']['elements'] : array();
@@ -112,7 +112,7 @@ class report_sql extends report_base {
         $finaltable = array();
         $tablehead = array();
 
-        $components = cr_unserialize($this->config_rep->components);
+        $components = cr_unserialize($this->config->components);
         $config = (isset($components['customsql']['config'])) ? $components['customsql']['config'] : new \stdclass;
         $totalrecords = 0;
 
@@ -124,7 +124,7 @@ class report_sql extends report_base {
                 foreach ($filters as $f) {
                     require_once($CFG->dirroot.'/blocks/configurable_reports/components/filters/'.$f['pluginname'].'/plugin.class.php');
                     $classname = 'plugin_'.$f['pluginname'];
-                    $class = new $classname($this->config_rep);
+                    $class = new $classname($this->config);
                     $sql = $class->execute($sql, $f['formdata']);
                 }
             }

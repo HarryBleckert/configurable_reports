@@ -14,6 +14,16 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+
+/**
+ * Configurable Reports
+ * A Moodle block for creating customizable reports
+ * @package:    block_configurable_reports
+ * @author: Juan leyva <http://www.twitter.com/jleyvadelgado>
+ * @author: Harry Bleckert Harry@Bleckert.com from 2023 onwards
+ * @date: 2009
+ */
+
 $string['pluginname'] = "Configurable Reports";
 $string['blockname'] = "Configurable Reports";
 $string['report_courses'] = "Courses report";

@@ -20,7 +20,6 @@
  * @package:    block_configurable_reports
  * @author: Juan leyva <http://www.twitter.com/jleyvadelgado>
  * @author: Harry Bleckert Harry@Bleckert.com from 2023 onwards
- * @author: Harry Bleckert Harry@Bleckert.com from 2023 onwards
  * @date: 2009
  */
 
@@ -33,7 +32,7 @@ class report_timeline extends report_base {
     public function get_all_elements() {
         $elements = array();
 
-        $components = cr_unserialize($this->config_rep->components);
+        $components = cr_unserialize($this->config->components);
 
         $config = (isset($components['timeline']['config'])) ? $components['timeline']['config'] : new \stdclass();
 

@@ -20,13 +20,12 @@
  * @package:    block_configurable_reports
  * @author: Juan leyva <http://www.twitter.com/jleyvadelgado>
  * @author: Harry Bleckert Harry@Bleckert.com from 2023 onwards
- * @author: Harry Bleckert Harry@Bleckert.com from 2023 onwards
  * @date: 2009
  */
 
 require_once($CFG->dirroot.'/lib/evalmath/evalmath.class.php');
 #[AllowDynamicProperties]
-class report_base {
+class report_base extends \stdClass{
 
     public $id = 0;
     public $components = array();

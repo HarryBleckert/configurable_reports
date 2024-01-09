@@ -44,11 +44,11 @@ if (!$pname) {
 }
 
 if (!$report = $DB->get_record('block_configurable_reports', array('id' => $id))) {
-    print_error('reportdoesnotexists');
+    throw new moodle_exception('reportdoesnotexists');
 }
 
 if (!$course = $DB->get_record("course", ['id' => $report->courseid])) {
-    print_error("No such course id");
+    throw new moodle_exception("No such course id");
 }
 
 // Force user login in course (SITE or Course).
@@ -62,11 +62,11 @@ if ($course->id == SITEID) {
 
 $hasmanagereportcap = has_capability('block/configurable_reports:managereports', $context);
 if (!$hasmanagereportcap && !has_capability('block/configurable_reports:manageownreports', $context)) {
-    print_error('badpermissions');
+    throw new moodle_exception('badpermissions');
 }
 
 if (!$hasmanagereportcap && $report->ownerid != $USER->id) {
-    print_error('badpermissions');
+    throw new moodle_exception('badpermissions');
 }
 
 require_once($CFG->dirroot.'/blocks/configurable_reports/report.class.php');
@@ -76,7 +76,7 @@ $reportclassname = 'report_'.$report->type;
 $reportclass = new $reportclassname($report->id);
 
 if (!in_array($comp, $reportclass->components)) {
-    print_error('badcomponent');
+    throw new moodle_exception('badcomponent');
 }
 
 $PAGE->set_context($context);
@@ -126,7 +126,7 @@ if (!$cid) {
 }
 
 if (!$plugin || $plugin != $pname) {
-    print_error('nosuchplugin');
+    throw new moodle_exception('nosuchplugin');
 }
 
 require_once($CFG->dirroot.'/blocks/configurable_reports/plugin.class.php');
@@ -182,7 +182,7 @@ if (isset($pluginclass->form) && $pluginclass->form) {
 
             $report->components = cr_serialize($allelements);
             if (!$DB->update_record('block_configurable_reports', $report)) {
-                print_error('errorsaving');
+                throw new moodle_exception('errorsaving');
             } else {
                 redirect(new moodle_url('/blocks/configurable_reports/editcomp.php', array('id' => $id, 'comp' => $comp)));
                 exit;
@@ -208,7 +208,7 @@ if (isset($pluginclass->form) && $pluginclass->form) {
             $allelements[$comp]['elements'][] = $cdata;
             $report->components = cr_serialize($allelements, false);
             if (!$DB->update_record('block_configurable_reports', $report)) {
-                print_error('errorsaving');
+                throw new moodle_exception('errorsaving');
             } else {
                 redirect(new moodle_url('/blocks/configurable_reports/editcomp.php', array('id' => $id, 'comp' => $comp)));
                 exit;
@@ -234,7 +234,7 @@ if (isset($pluginclass->form) && $pluginclass->form) {
     $allelements[$comp]['elements'][] = $cdata;
     $report->components = cr_serialize($allelements);
     if (!$DB->update_record('block_configurable_reports', $report)) {
-        print_error('errorsaving');
+        throw new moodle_exception('errorsaving');
     } else {
         redirect(new moodle_url('/blocks/configurable_reports/editcomp.php', ['id' => $id, 'comp' => $comp]));
         exit;

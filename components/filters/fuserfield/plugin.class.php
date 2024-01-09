@@ -116,7 +116,7 @@ class plugin_fuserfield extends plugin_base {
         }
 
         if (!isset($usercolumns[$data->field])) {
-            print_error('nosuchcolumn');
+            throw new moodle_exception('nosuchcolumn');
         }
 
         $reportclassname = 'report_'.$this->report->type;
@@ -177,7 +177,7 @@ class plugin_fuserfield extends plugin_base {
             if (empty($operator)) {
                 $operator = '~';
             } else if (!in_array($operator, $operators)) {
-                print_error('nosuchoperator');
+                throw new moodle_exception('nosuchoperator');
             }
             if ($operator == '~') {
                 $replace = " AND " . $field . " LIKE '%" . $filtersearchtext . "%'";

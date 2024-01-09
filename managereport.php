@@ -32,7 +32,7 @@ $courseid = optional_param('courseid', SITEID, PARAM_INT);
 $importurl = optional_param('importurl', '', PARAM_RAW);
 
 if (! $course = $DB->get_record("course", array('id' => $courseid)) ) {
-    print_error("No such course id");
+    throw new moodle_exception("No such course id");
 }
 
 // Force user login in course (SITE or Course).
@@ -46,7 +46,7 @@ if ($course->id == SITEID) {
 
 if (!has_capability('block/configurable_reports:managereports', $context) &&
         !has_capability('block/configurable_reports:manageownreports', $context)) {
-    print_error('badpermissions');
+    throw new moodle_exception('badpermissions');
 }
 
 $PAGE->set_url('/blocks/configurable_reports/managereport.php', array('courseid' => $course->id));
@@ -59,14 +59,14 @@ if ($importurl) {
         $data = json_decode($data);
         $xml = base64_decode($data->content);
     } else {
-        print_error('errorimporting');
+        throw new moodle_exception('errorimporting');
     }
 
     if (cr_import_xml($xml, $course)) {
         redirect("$CFG->wwwroot/blocks/configurable_reports/managereport.php?courseid={$course->id}",
                     get_string('reportcreated', 'block_configurable_reports'));
     } else {
-        print_error('errorimporting');
+        throw new moodle_exception('errorimporting');
     }
 }
 
@@ -78,7 +78,7 @@ if ($data = $mform->get_data()) {
             redirect("$CFG->wwwroot/blocks/configurable_reports/managereport.php?courseid={$course->id}",
                     get_string('reportcreated', 'block_configurable_reports'));
         } else {
-            print_error('errorimporting');
+            throw new moodle_exception('errorimporting');
         }
     }
 }

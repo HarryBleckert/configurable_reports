@@ -105,7 +105,7 @@ class block_configurable_reports extends block_list {
         $course = $DB->get_record('course', array('id' => $COURSE->id));
 
         if (!$course) {
-            print_error('coursedoesnotexists');
+            throw new moodle_exception('coursedoesnotexists');
         }
 
         if ($course->id == SITEID) {
